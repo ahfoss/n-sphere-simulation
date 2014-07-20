@@ -2,6 +2,8 @@ source('GenSphereNorm.R')
 source('GenSphereSE.R')
 source('GenSphereRejection.R')
 
+sink('diagnostics')
+
 set.seed(1)
 
 # plot 2D data
@@ -40,9 +42,7 @@ rejData5 <- genSphereRejection(500,5,center=1:5,r=3)
 pairs(circData5A,col=rgb(r=0,g=0,b=1,a=.5))
 pairs(circData5B,col=rgb(r=0,g=0,b=1,a=.5))
 pairs(rejData5,col=rgb(r=0,g=0,b=1,a=.5))
-@
 
-<<manyHists>>=
 # Inspect marginals of 5D data; should look parabolic
 orig <- par(mfrow=c(2,2))
 hist(circData5A[,1],breaks=15)
@@ -65,4 +65,5 @@ hist(circData5A[,5],breaks=15)
 hist(circData5B[,5],breaks=15)
 hist(rejData5[,5],breaks=15)
 par(orig)
-@
+
+sink()
