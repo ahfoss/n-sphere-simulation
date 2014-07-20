@@ -2,8 +2,6 @@ source('GenSphereNorm.R')
 source('GenSphereSE.R')
 source('GenSphereRejection.R')
 
-sink('diagnostics')
-
 set.seed(1)
 
 # plot 2D data
@@ -66,4 +64,3 @@ hist(circData5B[,5],breaks=15)
 hist(rejData5[,5],breaks=15)
 par(orig)
 
-sink()
